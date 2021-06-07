@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <body style="text-align: center">
+      <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <p>제목: <input type="text" name="title" /></p>
+      
+        <p>작성자: <input type="text" name="writer" /></p>
+      
+        <p>내용: <textarea id="" name="body" cols="30" rows="10"></textarea> </p>
+        <button type="submit">Submit</button>
+      </form>
+  </body>
+{% endblock %}

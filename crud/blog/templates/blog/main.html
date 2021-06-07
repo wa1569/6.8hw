@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block main %}
+<section class="page-section" id="services">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">메인 페이지 입니다.</h2>
+        {% for posts in posts.all %}
+        <p>제목: {{posts.title}}</p>
+        <p>작성자: {{posts.writer}}</p>
+        <p>작성일지 및 시간: {{posts.pub_date}}</p>
+        {% endfor %}
+        <hr class="divider" />
+        
+    </div>
+</section>
+{% endblock %}

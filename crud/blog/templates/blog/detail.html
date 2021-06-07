@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<section class="page-section" id="services">
+    <div class="container px-4 px-lg-5">
+        <!--글제목을 넣을 예정입니다-->
+        <h2 class="text-center mt-0">제목: {{posts.title}}</h2>
+        <hr class="divider" />
+        <p>작성 일자 및 시간: {{posts.pub_date}}</p>
+        <p>글쓴이 : {{post.writer}}</p>
+        <p>내용:{{post.body}}</p>
+        <a href="{% url 'edit' post.id %}">수정하기</a>
+        <a href="{% url 'delete' post.id %}">삭제하기</a>
+        {% for comment in post.comments.all %}
+        <p> {{ comment.text }}</p>
+        {% endfor %}
+        <form method="POST" action="{% url 'detail' post.id %}">
+            {% csrf_token %}
+            <p>{{ form.as_p }}</p>
+            <input type="submit" value="submit">
+    </div>
+</section>
+{% endblock %}
