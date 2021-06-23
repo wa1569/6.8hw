@@ -1,12 +1,17 @@
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, Hashtag
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'writer', 'body']
+        fields = ['title', 'writer', 'body', 'hashtags']
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['text']
+
+class HashtagForm(forms.ModelForm):
+    class Meta:
+        model = Hashtag
+        fields = ['name']

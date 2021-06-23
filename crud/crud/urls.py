@@ -12,4 +12,6 @@ urlpatterns = [
     path('write/create/', blog.views.create, name='create'),
     path('edit/<str:id>/', blog.views.edit, name='edit'),
     path('delete/<str:id>/', blog.views.delete, name='delete'),
+    path('blog/hashtag/', blog.views.hashtagform, name='hashtag'),
+    path('blog/<int:hashtag_id>/search/', blog.views.search, name='search'),
 ]

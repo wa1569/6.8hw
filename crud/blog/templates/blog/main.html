@@ -2,6 +2,17 @@
 {% block main %}
 <section class="page-section" id="services">
     <div class="container px-4 px-lg-5">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Hashtag 검색
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {% for hashtag in hashtags.all %}
+              <a class ="dropdown-item" href="{% url 'search' hashtag.id %}">{{ hastag.name }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        <br><br>
         <h2 class="text-center mt-0">메인 페이지 입니다.</h2>
         {% for posts in posts.all %}
         <p>제목: {{posts.title}}</p>
